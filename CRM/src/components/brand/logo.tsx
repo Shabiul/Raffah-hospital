@@ -5,10 +5,10 @@ export function DentizzMark({ className }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
-      className={cn("inline-grid h-8 w-8 place-items-center rounded-full bg-white ring-[3px] ring-inset ring-[#0b5db5]", className)}
+      className={cn("relative inline-block h-8 w-8 shrink-0 rounded-full bg-white ring-[3px] ring-inset ring-[#0b5db5]", className)}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/tooth.png" alt="" className="h-[62%] w-auto" />
+      <img src="/tooth.png" alt="" className="absolute left-1/2 top-1/2 h-[56%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2" />
     </span>
   )
 }
