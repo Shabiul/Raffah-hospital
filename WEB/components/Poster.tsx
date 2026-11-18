@@ -36,6 +36,8 @@ export default function Poster({ n, at = {}, flow = false, grid = false }: Props
     ...pos,
     "--w": `${width ?? p.w}px`,
     "--r": `${rotate ?? 0}deg`,
+    "--fd": `${6 + (n % 4)}s`,
+    "--dl": `-${(n * 1.7) % 7}s`,
   } as CSSProperties;
   return (
     <figure className={`qp${flow ? " qp-flow" : ""}${grid ? " qp-grid" : ""}`} style={style}>

@@ -20,16 +20,29 @@ export default function Motion() {
     if (!reduced) root.classList.add("motion");
 
     (async () => {
-      const [{ gsap }, { ScrollTrigger }, { SplitText }, { default: Lenis }, { default: initMotion }] =
+      const [
+        { gsap },
+        { ScrollTrigger },
+        { SplitText },
+        { default: Lenis },
+        { default: initMotion },
+        { default: initExtraMotion },
+        { Draggable },
+      ] =
         await Promise.all([
           import("gsap"),
           import("gsap/ScrollTrigger"),
           import("gsap/SplitText"),
           import("lenis"),
           import("@/lib/motion"),
+          import("@/lib/extra-motion"),
+          import("gsap/Draggable"),
         ]);
-      Object.assign(window, { gsap, ScrollTrigger, SplitText, Lenis });
+      gsap.registerPlugin(Draggable);
+      Object.assign(window, { gsap, ScrollTrigger, SplitText, Lenis, Draggable });
       initMotion();
+      // Extra effects need the template to have registered ScrollTrigger first.
+      if (root.classList.contains("motion")) initExtraMotion();
     })().catch((err) => {
       console.error(err);
       root.classList.remove("motion");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Tick from "./Tick";
 
 const WHATSAPP = "919845177371";
@@ -35,6 +35,17 @@ async function saveRequest(r: { name: string; phone: string; date: string; reaso
 
 export default function ContactForm() {
   const [state, setState] = useState<"idle" | "sending" | "saved" | "whatsapp">("idle");
+  const reasonRef = useRef<HTMLTextAreaElement>(null);
+
+  // The treatment finder can drop its suggestion into the reason box.
+  useEffect(() => {
+    const onPrefill = (e: Event) => {
+      const reason = (e as CustomEvent<{ reason: string }>).detail?.reason;
+      if (reason && reasonRef.current) reasonRef.current.value = reason;
+    };
+    window.addEventListener("dz-prefill", onPrefill);
+    return () => window.removeEventListener("dz-prefill", onPrefill);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -88,7 +99,7 @@ export default function ContactForm() {
       </label>
       <label className="field field-wide">
         <span>Reason for visit</span>
-        <textarea name="reason" rows={2} maxLength={1000} />
+        <textarea ref={reasonRef} name="reason" rows={2} maxLength={1000} />
       </label>
       <div className="ct-send">
         <button className="btn" type="submit" disabled={state === "sending"}>

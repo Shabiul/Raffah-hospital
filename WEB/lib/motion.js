@@ -97,6 +97,7 @@ export default function initMotion() {
   };
   if (window.Lenis) {
     lenis = new Lenis({ lerp: 0.11 });
+      window.__lenis = lenis;
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
@@ -329,7 +330,7 @@ export default function initMotion() {
               const d = span();
               tw = gsap.to(track, {
                 x: -d,
-                duration: d / 38,
+                duration: d / (parseFloat(row.dataset.speed) || 38),
                 ease: "none",
                 repeat: -1,
                 paused: true,

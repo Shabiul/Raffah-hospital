@@ -4,8 +4,27 @@ import Motion from "@/components/Motion";
 import Logo from "@/components/Logo";
 import Tick from "@/components/Tick";
 import Poster from "@/components/Poster";
+import Lightbox from "@/components/Lightbox";
+import { Bubbles, Floater, Loader, SmileArc, ToothDraw, Wave } from "@/components/Decor";
+import Finder from "@/components/Finder";
+import BrushTimer from "@/components/BrushTimer";
+import OpenNow from "@/components/OpenNow";
+import TeethExplorer from "@/components/TeethExplorer";
+import HoursWeek from "@/components/HoursWeek";
+import { ABOUT, COLLAGE, GRID, HERO, full, medium, photos } from "@/lib/gallery";
 
 const img = (name: string) => `/images/${name}.jpg`;
+
+const TOUR: [number, string][] = [
+  [11, "The front door on Serpentine Street"],
+  [1, "Waiting lounge"],
+  [25, "Reception"],
+  [6, "Consultation desk"],
+  [12, "Treatment room"],
+  [19, "Chair and light"],
+  [21, "Wash basin and smile poster"],
+  [22, "Instrument counter"],
+];
 
 const services = [
   {
@@ -135,11 +154,16 @@ const faqs = [
 export default function Home() {
   return (
     <>
+      <Loader />
+      <div className="scroll-progress" aria-hidden="true">
+        <i />
+      </div>
       <Header />
 
       <main>
         <section className="hero sheet" id="hero" data-kind="hero" data-tone="light">
           <div className="hero-pin">
+            <Bubbles />
             <div className="hero-grid">
               <div className="hero-word">
                 <h1 className="giant" style={{ ["--len" as string]: 7 }}>
@@ -149,10 +173,10 @@ export default function Home() {
               <figure className="hero-window">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={img("treatment-room-wide")}
-                  alt="Two dental chairs in the Dentizz treatment room"
-                  width={1204}
-                  height={1600}
+                  src={full(HERO)}
+                  alt={photos[HERO].alt}
+                  width={1600}
+                  height={1204}
                 />
               </figure>
               <div className="hero-intro">
@@ -160,6 +184,18 @@ export default function Home() {
                   Dentizz is a speciality dental clinic in Richmond Town, Bengaluru, caring for
                   children and adults with braces, aligners, root canals, crowns, dentures and
                   more.
+                </p>
+                <p className="roll">
+                  Dentistry that feels{" "}
+                  <span className="roll-words">
+                    <span className="roll-track">
+                      <b>gentle</b>
+                      <b>calm</b>
+                      <b>caring</b>
+                      <b>bright</b>
+                      <b>gentle</b>
+                    </span>
+                  </span>
                 </p>
                 <div className="actions">
                   <a className="btn" href="#contact">
@@ -175,6 +211,7 @@ export default function Home() {
               <div className="hero-aim">
                 <p>Our promise</p>
                 <p>Add smile to your face.</p>
+                <OpenNow className="hero-open" />
               </div>
             </div>
             <div className="hero-stage" aria-hidden="true" />
@@ -190,10 +227,10 @@ export default function Home() {
             <figure className="about-photo frame" data-parallax="12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={img("reception")}
-                alt="The Dentizz reception and waiting area"
-                width={1600}
-                height={1204}
+                src={full(ABOUT)}
+                alt={photos[ABOUT].alt}
+                width={1204}
+                height={1600}
                 loading="lazy"
               />
             </figure>
@@ -231,7 +268,22 @@ export default function Home() {
             </li>
           </ul>
           <Poster n={18} at={{ right: "4%", top: "8%", rotate: 3, width: 225 }} />
+          <Floater kind="sparkle" size={34} speed={60} style={{ right: "6%", top: "46%" }} />
+          <Floater kind="drop" size={30} speed={-40} dur={11} style={{ left: "48%", top: "6%" }} />
         </section>
+
+        <div className="band" aria-hidden="true">
+          <ul className="band-track">
+            {[0, 1].flatMap((c) =>
+              ["Orthodontics", "Aligners", "Root canal", "Crowns & bridges", "Dentures", "Aesthetic dentistry", "Kids' dentistry", "Wisdom tooth removal"].map((w) => (
+                <li className="band-item" key={`${c}-${w}`}>
+                  <span className="w">{w}</span>
+                  <i className="band-dot" />
+                </li>
+              )),
+            )}
+          </ul>
+        </div>
 
         <section className="services sheet" id="services" data-kind="services" data-tone="light">
           <div className="grid svc-head">
@@ -267,6 +319,42 @@ export default function Home() {
               ))}
             </ul>
           </div>
+        </section>
+
+        <section className="tour" id="tour" data-kind="tour" data-tone="dark">
+          <div className="tour-head">
+            <h2 data-split>Take a look around</h2>
+            <p>Scroll sideways through the clinic, from the front door to the treatment room.</p>
+          </div>
+          <div className="tour-view">
+            <ul className="tour-track">
+              {TOUR.map(([n, label], i) => (
+                <li className="tour-card" key={n}>
+                  <div className="tour-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={medium(n)} data-full={full(n)} data-lightbox="" alt={photos[n].alt} width={photos[n].w} height={photos[n].h} loading="lazy" />
+                  </div>
+                  <p>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    {label}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="tour-bar" aria-hidden="true">
+            <i />
+          </div>
+        </section>
+
+        <section className="statement sheet" id="statement" data-kind="statement" data-tone="light">
+          <p className="statement-text" data-words>
+            We listen first, explain clearly and treat gently, so every visit leaves you with a healthier smile and nothing to worry about.
+          </p>
+          <figure className="reveal-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={full(4)} alt={photos[4].alt} width={1600} height={1204} loading="lazy" />
+          </figure>
         </section>
 
         <section className="principles" id="why" data-kind="values" data-tone="accent">
@@ -315,6 +403,8 @@ export default function Home() {
               <Poster n={24} flow at={{ rotate: 3, width: 220 }} />
             </div>
           </div>
+          <Floater kind="brush" size={44} speed={50} dur={12} style={{ left: "44%", top: "8%" }} />
+          <Floater kind="sparkle" size={28} speed={-50} style={{ right: "10%", top: "70%" }} />
         </section>
 
         <section className="team sheet" id="team" data-kind="team" data-tone="dark">
@@ -323,6 +413,7 @@ export default function Home() {
             <p className="soft">Dentizz is led by Dr. Abdul Azeez, registered dentist, Reg. No. 14934A.</p>
           </div>
           <div className="qp-row">
+            <ToothDraw />
             <Poster n={28} flow at={{ rotate: -3, width: 297 }} />
             <Poster n={30} flow at={{ rotate: 3, width: 283 }} />
           </div>
@@ -344,20 +435,45 @@ export default function Home() {
             </p>
           </div>
           <div className="collage">
-            {[
-              ["gl-a", "-8", "waiting-lounge", 1600, 1204, "The waiting lounge"],
-              ["gl-b", "14", "signboard", 1200, 1600, "The Dentizz signboard on Serpentine Street"],
-              ["gl-c", "26", "storefront", 1200, 1600, "The Dentizz clinic entrance"],
-              ["gl-d", "4", "treatment-room", 1204, 1600, "A treatment room with dental chair"],
-              ["gl-e", "20", "treatment-room-wide", 1204, 1600, "Two dental chairs side by side"],
-            ].map(([cls, depth, name, w, h, alt]) => (
-              <figure className={`gl ${cls} frame`} data-depth={depth} key={cls as string}>
+            {(
+              [
+                ["gl-a", "-8", COLLAGE[0]],
+                ["gl-b", "14", COLLAGE[1]],
+                ["gl-c", "26", COLLAGE[2]],
+                ["gl-d", "4", COLLAGE[3]],
+                ["gl-e", "20", COLLAGE[4]],
+              ] as const
+            ).map(([cls, depth, n]) => (
+              <figure className={`gl ${cls} frame`} data-depth={depth} key={cls}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={img(name as string)}
-                  alt={alt as string}
-                  width={w as number}
-                  height={h as number}
+                  src={full(n)}
+                  data-full={full(n)}
+                  data-lightbox=""
+                  alt={photos[n].alt}
+                  width={1600}
+                  height={1204}
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+
+          <div className="mosaic-title">
+            <h3 data-split>More from the clinic</h3>
+            <p className="muted small">Tap or click any photo to view it large.</p>
+          </div>
+          <div className="mosaic">
+            {GRID.map((p) => (
+              <figure className="mo frame" key={p.n}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={medium(p.n)}
+                  data-full={full(p.n)}
+                  data-lightbox=""
+                  alt={p.alt}
+                  width={p.w}
+                  height={p.h}
                   loading="lazy"
                 />
               </figure>
@@ -383,6 +499,32 @@ export default function Home() {
             <Poster n={27} flow at={{ rotate: -3, width: 290 }} />
             <Poster n={26} flow at={{ rotate: 2, width: 400 }} />
           </div>
+          <Floater kind="ring" size={42} speed={50} dur={13} style={{ right: "8%", top: "12%" }} />
+          <Floater kind="sparkle" size={30} speed={-40} style={{ left: "50%", bottom: "8%" }} />
+        </section>
+
+        <section className="finder-sec sheet" id="finder" data-kind="finder" data-tone="light">
+          <div className="grid fn-head">
+            <h2 data-split>Not sure where to start?</h2>
+            <p>Tell us what is bothering you and we will suggest the treatment to ask about.</p>
+          </div>
+          <Finder />
+        </section>
+
+        <section className="teeth-sec sheet" id="teeth" data-kind="teeth" data-tone="paper">
+          <div className="grid fn-head">
+            <h2 data-split>Meet your teeth</h2>
+            <p>Tap any tooth to see what it does and how to look after it. Switch between adult and baby teeth.</p>
+          </div>
+          <TeethExplorer />
+        </section>
+
+        <section className="brush-sec sheet" id="brush" data-kind="brush" data-tone="dark">
+          <div className="grid fn-head">
+            <h2 data-split>Brush like a pro</h2>
+            <p>A two-minute timer that walks you around your mouth. Try it tonight.</p>
+          </div>
+          <BrushTimer />
         </section>
 
         <section className="faq sheet" id="faq" data-kind="faq" data-tone="paper">
@@ -404,9 +546,12 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <Floater kind="tooth" size={56} speed={70} dur={16} style={{ right: "6%", top: "8%" }} />
+          <Floater kind="plus" size={26} speed={-40} dur={9} style={{ left: "46%", bottom: "12%" }} />
         </section>
 
         <section className="contact sheet" id="contact" data-kind="contact" data-tone="dark">
+          <Wave />
           <div className="grid ct-grid">
             <h2 className="ct-title" data-split>
               Your healthier smile starts with one visit.
@@ -444,6 +589,9 @@ export default function Home() {
                     <br />
                     Sunday: holiday
                   </dd>
+                  <dd>
+                    <OpenNow />
+                  </dd>
                 </div>
                 <div>
                   <dt>Online</dt>
@@ -465,6 +613,9 @@ export default function Home() {
               </dl>
             </div>
             <ContactForm />
+            <div className="ct-week">
+              <HoursWeek />
+            </div>
           </div>
           <Poster n={29} at={{ right: "3%", top: "2%", rotate: 3, width: 165 }} />
         </section>
@@ -498,6 +649,7 @@ export default function Home() {
             <a className="link ftr-top" href="#hero">Back to top</a>
           </div>
         </div>
+        <SmileArc />
         <div className="ftr-word" style={{ ["--len" as string]: 7 }} aria-hidden="true">
           <Logo />
           <span className="ftr-name">Dentizz</span>
@@ -508,6 +660,7 @@ export default function Home() {
         </div>
       </footer>
 
+      <Lightbox />
       <Motion />
     </>
   );
