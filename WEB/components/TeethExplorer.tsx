@@ -62,6 +62,16 @@ export default function TeethExplorer() {
   const teeth = useMemo(() => layout(kinds, cfg.rx, cfg.ry, cfg.fill), [kinds, cfg.rx, cfg.ry, cfg.fill]);
 
   const cur = kinds[Math.min(pick.k, kinds.length - 1)];
+
+  // Every tooth in reading order: upper right to left, then lower left to right.
+  const walk: Pick[] = [
+    ...kinds.map((_, k) => ({ arch: "upper" as const, side: "R" as const, k })),
+    ...kinds.map((_, i) => ({ arch: "upper" as const, side: "L" as const, k: kinds.length - 1 - i })),
+    ...kinds.map((_, i) => ({ arch: "lower" as const, side: "L" as const, k: kinds.length - 1 - i })),
+    ...kinds.map((_, k) => ({ arch: "lower" as const, side: "R" as const, k })),
+  ];
+  const here = Math.max(0, walk.findIndex((w) => w.arch === pick.arch && w.side === pick.side && w.k === pick.k));
+  const stepTooth = (d: number) => setPick(walk[(here + d + walk.length) % walk.length]);
   const count = mode === "adult" ? 32 : 20;
   const where = `${pick.arch === "upper" ? "Upper" : "Lower"} ${pick.side === "R" ? "right" : "left"}`;
 
@@ -132,6 +142,14 @@ export default function TeethExplorer() {
         <p className="teeth-tip">
           <b>Care tip</b> {cur.tip}
         </p>
+        <div className="teeth-step">
+          <button type="button" onClick={() => stepTooth(-1)} aria-label="Previous tooth">
+            &#8249; Previous
+          </button>
+          <button type="button" onClick={() => stepTooth(1)} aria-label="Next tooth">
+            Next &#8250;
+          </button>
+        </div>
         <p className="teeth-count">
           {mode === "adult" ? "Adults" : "Children"} have <b>{count}</b> teeth: {count / 4} in each quarter of the mouth.
         </p>

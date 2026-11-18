@@ -1,0 +1,129 @@
+{
+  "syncedAt": "2026-11-18",
+  "biz": {
+    "name": "Dentizz Speciality Dental Care",
+    "short": "Dentizz",
+    "address": "#10, Serpentine Street, Opp Blessington Apartment, Richmond Town, Bengaluru - 560 025",
+    "phone": "98451 77371",
+    "phone2": "080 - 4092 3102",
+    "email": "abukdrazeez98@gmail.com",
+    "tagline": "Add Smile to your Face",
+    "intro": "Dentizz is a speciality dental clinic in Richmond Town, Bengaluru, caring for children and adults with braces, aligners, root canals, crowns, dentures and more.",
+    "mapQuery": "Dentizz Speciality Dental Care, Serpentine Street, Richmond Town, Bengaluru",
+    "hours": {
+      "opd": "Mon-Sat · 10:30 AM – 8:30 PM"
+    }
+  },
+  "departments": [
+    {
+      "id": "child-dentistry",
+      "name": "Child dentistry",
+      "summary": "Gentle check-ups and everyday dental care for children.",
+      "about": "Child dentistry covers first visits, check-ups and everyday care for children, in a clinic with a kids' corner of its own."
+    },
+    {
+      "id": "orthodontics",
+      "name": "Orthodontics",
+      "summary": "Braces to straighten teeth, planned around your smile.",
+      "about": "Orthodontic treatment with braces to straighten teeth, planned around each patient's age and smile."
+    },
+    {
+      "id": "aligners",
+      "name": "Aligners",
+      "summary": "Clear aligners as an alternative to braces.",
+      "about": "Clear aligner treatment to straighten teeth, planned around each patient's smile."
+    },
+    {
+      "id": "crowns-bridges",
+      "name": "Crowns & bridges",
+      "summary": "Restore or replace damaged and missing teeth.",
+      "about": "Crowns protect damaged teeth and bridges close the gap left by missing teeth."
+    },
+    {
+      "id": "aesthetic-dentistry",
+      "name": "Aesthetic dentistry",
+      "summary": "Restoring your smile is our speciality.",
+      "about": "Aesthetic treatments that restore and refresh the way your teeth look."
+    },
+    {
+      "id": "root-canal",
+      "name": "Root canal treatment",
+      "summary": "Treatment for painful or infected teeth.",
+      "about": "Root canal treatment for teeth that are painful or infected, to save the tooth."
+    },
+    {
+      "id": "dentures",
+      "name": "Dentures",
+      "summary": "Replace several missing teeth.",
+      "about": "Dentures replace several missing teeth so you can eat and smile with confidence."
+    },
+    {
+      "id": "wisdom-tooth-removal",
+      "name": "Wisdom tooth removal",
+      "summary": "Careful removal of troublesome wisdom teeth.",
+      "about": "Examination and, where needed, removal of wisdom teeth that hurt, swell or have no room."
+    },
+    {
+      "id": "check-up-scaling",
+      "name": "Check-up & scaling",
+      "summary": "Routine examination and cleaning.",
+      "about": "A routine dental examination and cleaning (scaling) to keep small problems small."
+    }
+  ],
+  "packages": [],
+  "doctors": [
+    {
+      "id": "dr-abdul-azeez",
+      "name": "Dr. Abdul Azeez",
+      "role": "Dentist · Reg. No. 14934A",
+      "dept": "check-up-scaling",
+      "sessions": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Sat"
+          ],
+          "start": "10:30",
+          "end": "13:00"
+        },
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
+          ],
+          "start": "17:00",
+          "end": "20:30"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "When is the clinic open?",
+      "a": "Monday to Saturday, 10:30 am to 1:00 pm and 5:00 pm to 8:30 pm. On Fridays we are open from 5:00 pm to 8:30 pm only. The clinic is closed on Sundays."
+    },
+    {
+      "q": "How do I book an appointment?",
+      "a": "Book online on our website, or call 98451 77371 or 080 - 4092 3102."
+    },
+    {
+      "q": "What treatments do you offer?",
+      "a": "Child dentistry, orthodontics, aligners, crowns and bridges, aesthetic dentistry, root canal treatment, dentures and wisdom tooth removal."
+    },
+    {
+      "q": "Do you treat children?",
+      "a": "Yes. Child dentistry is one of our areas of care, and the clinic has a kids' corner."
+    },
+    {
+      "q": "Where are you?",
+      "a": "#10, Serpentine Street, opposite Blessington Apartment, Richmond Town, Bengaluru - 560 025."
+    }
+  ]
+}

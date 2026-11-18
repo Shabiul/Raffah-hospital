@@ -40,7 +40,7 @@ export default function Poster({ n, at = {}, flow = false, grid = false }: Props
     "--dl": `-${(n * 1.7) % 7}s`,
   } as CSSProperties;
   return (
-    <figure className={`qp${flow ? " qp-flow" : ""}${grid ? " qp-grid" : ""}`} style={style}>
+    <figure className={`qp ${n % 2 ? "qp-r" : "qp-l"}${flow ? " qp-flow" : ""}${grid ? " qp-grid" : ""}`} style={style}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`/quotes/q${n}.png`} alt={p.alt} width={p.w} height={p.h} loading="lazy" data-reveal />
     </figure>

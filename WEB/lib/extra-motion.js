@@ -452,6 +452,32 @@ export default function initExtraMotion() {
       document.body.appendChild(nav);
     }
 
+    // 21. Phones: the service cards stack like a deck. Each card shrinks back as the next one slides over it.
+    const deck = gsap.matchMedia();
+    deck.add("(max-width: 1024px)", () => {
+      const cards = $$(".svc");
+      cards.forEach((card, i) => {
+        const next = cards[i + 1];
+        if (!next) return;
+        gsap.to(card, {
+          scale: 0.93,
+          opacity: 0.6,
+          ease: "none",
+          scrollTrigger: { trigger: next, start: "top 88%", end: "top 22%", scrub: true },
+        });
+      });
+    });
+
+    // 22. The Call / Book bar tucks away once the booking form is on screen.
+    if ($(".mbar") && $("#contact")) {
+      ScrollTrigger.create({
+        trigger: "#contact",
+        start: "top 70%",
+        end: "bottom bottom",
+        toggleClass: { targets: ".mbar", className: "hide" },
+      });
+    }
+
     ScrollTrigger.sort();
     ScrollTrigger.refresh();
   };

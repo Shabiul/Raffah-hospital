@@ -11,7 +11,7 @@ import BrushTimer from "@/components/BrushTimer";
 import OpenNow from "@/components/OpenNow";
 import TeethExplorer from "@/components/TeethExplorer";
 import HoursWeek from "@/components/HoursWeek";
-import { ABOUT, COLLAGE, GRID, HERO, full, medium, photos } from "@/lib/gallery";
+import { ABOUT, COLLAGE, GRID, HERO, full, medium, photos, small } from "@/lib/gallery";
 
 const img = (name: string) => `/images/${name}.jpg`;
 
@@ -300,7 +300,15 @@ export default function Home() {
                 <li className="svc" key={s.title}>
                   <figure className="svc-media frame">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={s.img} alt={s.alt} width={1400} height={933} loading="lazy" />
+                    <img
+                      src={s.img}
+                      srcSet={`${s.img.replace(".jpg", "-700.jpg")} 700w, ${s.img} 1400w`}
+                      sizes="(max-width: 1024px) 92vw, 45vw"
+                      alt={s.alt}
+                      width={1400}
+                      height={933}
+                      loading="lazy"
+                    />
                   </figure>
                   <h3>{s.title}</h3>
                   <p className="svc-text">{s.text}</p>
@@ -332,7 +340,7 @@ export default function Home() {
                 <li className="tour-card" key={n}>
                   <div className="tour-img">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={medium(n)} data-full={full(n)} data-lightbox="" alt={photos[n].alt} width={photos[n].w} height={photos[n].h} loading="lazy" />
+                    <img src={medium(n)} srcSet={`${small(n)} 480w, ${medium(n)} 900w`} sizes="(max-width: 1024px) 78vw, 30vw" data-full={full(n)} data-lightbox="" alt={photos[n].alt} width={photos[n].w} height={photos[n].h} decoding="async" fetchPriority="low" />
                   </div>
                   <p>
                     <span>{String(i + 1).padStart(2, "0")}</span>
@@ -469,6 +477,8 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={medium(p.n)}
+                  srcSet={`${small(p.n)} 480w, ${medium(p.n)} 900w`}
+                  sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 30vw"
                   data-full={full(p.n)}
                   data-lightbox=""
                   alt={p.alt}
@@ -659,6 +669,15 @@ export default function Home() {
           <span>Richmond Town, Bengaluru</span>
         </div>
       </footer>
+
+      <nav className="mbar" aria-label="Quick actions">
+        <a className="mbar-call" href="tel:+919845177371">
+          Call
+        </a>
+        <a className="mbar-book" href="#contact">
+          Book appointment
+        </a>
+      </nav>
 
       <Lightbox />
       <Motion />

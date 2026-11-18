@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dentizz
+      POSTGRES_PASSWORD: ${DENTIZZ_DB_PASSWORD:?set DENTIZZ_DB_PASSWORD}
+      POSTGRES_DB: lumi_hospital
+    ports:
+      - "5432:5432"
+    volumes:
+      - lumi_hospital_db:/var/lib/postgresql/data
+
+volumes:
+  lumi_hospital_db:

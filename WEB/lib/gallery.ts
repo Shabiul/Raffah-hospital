@@ -44,6 +44,7 @@ export const photos: Photo[] = alts.map((alt, n) => ({
 export const pad = (n: number) => String(n).padStart(2, "0");
 export const full = (n: number) => `/gallery/g${pad(n)}.jpg`;
 export const medium = (n: number) => `/gallery/m${pad(n)}.jpg`;
+export const small = (n: number) => `/gallery/s${pad(n)}.jpg`;
 
 /** Photos used elsewhere on the page, so the grid does not repeat them. */
 export const HERO = 27;

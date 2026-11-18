@@ -445,7 +445,6 @@ html.lenis,html.lenis body{height:auto}
 .qp-row .qp{position:relative;margin:0}
 @media (max-width:1024px){
   .qp:not(.qp-flow){position:relative;display:block;margin:clamp(32px,6vw,56px) auto 0;width:min(var(--w,260px),70vw)}
-  .hero .qp{display:none}
 }
 
 /* Why section: numbered, labelled sticks */
@@ -700,3 +699,116 @@ html.intro .loader{display:grid;animation:loaderOut .01s linear 5s forwards}
 .qp.dragging{z-index:60;animation-play-state:paused}
 .spark{position:fixed;width:9px;height:9px;margin:-4px 0 0 -4px;border-radius:2px;pointer-events:none;z-index:95;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
 @media (prefers-reduced-motion:reduce){.tooth-in{animation:none}.week-track i{transition:none;transform:none}}
+
+/* Live booking form */
+.field select{width:100%;padding:.5rem 0 .7rem;border:0;border-radius:0;background:transparent;font-size:1.1rem;color:inherit;outline:0;appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 14px) 55%,calc(100% - 8px) 55%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.field select option{color:#0b1b2e;background:#fff}
+.slots-wrap{display:grid;gap:10px}
+.slots-label{font-size:.84rem;color:var(--soft)}
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slot{border:1px solid color-mix(in oklab,currentColor 30%,transparent);border-radius:999px;background:transparent;color:inherit;font:500 .95rem/1 var(--f-text);padding:.75em 1.1em;cursor:pointer;transition:background .25s var(--ease),border-color .25s,transform .25s var(--ease)}
+.slot:hover{border-color:var(--accent);transform:translateY(-2px)}
+.slot.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.ct-done{grid-column:2 / 5;display:grid;gap:14px;align-content:start;padding:0 var(--cell)}
+.ct-done h3{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;letter-spacing:-.035em;line-height:1.05}
+.ct-done-tag{justify-self:start;font-size:.78rem;font-weight:600;padding:.35em .7em;border-radius:var(--r);background:var(--spark);color:var(--ink)}
+.ct-done .btn{justify-self:start;margin-top:8px}
+@media (max-width:760px){.ct-done{grid-column:1 / -1}}
+
+/* Hero poster on small screens: a sticker on the corner of the hero photo */
+@media (max-width:760px){
+  .qp.qp-grid{grid-area:window;align-self:start;justify-self:end;width:118px;margin:-14px -2px 0 0;z-index:4}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .qp.qp-grid{grid-area:poster;align-self:end;justify-self:center;margin:0 0 6px;width:min(var(--w,200px),22vw)}
+}
+
+/* Teeth chart: previous / next for touch */
+.teeth-step{display:flex;gap:10px;margin-top:4px}
+.teeth-step button{display:inline-flex;align-items:center;gap:.5em;border:1px solid color-mix(in oklab,var(--ink) 18%,transparent);border-radius:999px;background:var(--bg);color:var(--ink);font:500 .95rem/1 var(--f-text);padding:.85em 1.2em;cursor:pointer;transition:background .25s,color .25s}
+.teeth-step button:hover{background:var(--ink);color:var(--bg)}
+
+/* ======================================================================
+   Phones: carry the desktop energy over
+   ====================================================================== */
+@media (hover:none){
+  *{-webkit-tap-highlight-color:transparent}
+  .btn,.chip,.slot,.teeth-step button,.teeth-toggle button{transition:color .45s var(--ease),background .25s,transform .15s var(--ease)}
+  .btn:active,.chip:active,.slot:active,.teeth-step button:active,.teeth-toggle button:active{transform:scale(.96)}
+}
+
+@media (max-width:760px){
+  :root{--sp:64px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+
+  /* Hero: a big photo with the name set over it, like the desktop hero */
+  .hero-grid{grid-template-rows:auto auto auto;grid-template-areas:"window" "intro" "aim";row-gap:20px}
+  .hero-grid > .hero-window{padding-inline:0;min-height:clamp(360px,60svh,600px);border-radius:22px}
+  .hero-window::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,27,46,.0) 34%,rgba(11,27,46,.8) 100%);pointer-events:none}
+  .hero-grid > .hero-word{grid-area:window;align-self:end;z-index:3;padding:0 20px 18px;pointer-events:none}
+  .hero .giant{color:#fff;text-shadow:0 4px 30px rgba(11,27,46,.4)}
+  .hero-grid > .hero-intro{padding-inline:var(--cell)}
+
+  /* Age rows: bigger type */
+  .sector-name{font-size:clamp(2.8rem,14vw,4.2rem)}
+
+  /* Gallery collage: a tidy grid instead of overlapping tiles */
+  .collage{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}
+  .collage > .gl{margin:0 var(--cell)!important;transform:none!important}
+  .gl-a{grid-column:1 / -1;grid-row:1;aspect-ratio:4 / 3}
+  .gl-b{grid-column:1;grid-row:2;aspect-ratio:3 / 4;margin-right:5px!important}
+  .gl-c{grid-column:2;grid-row:2;aspect-ratio:3 / 4;margin-left:5px!important}
+  .gl-d{grid-column:1 / -1;grid-row:3;aspect-ratio:16 / 10}
+  .gl-e{grid-column:1 / -1;grid-row:4;aspect-ratio:16 / 10}
+
+  /* Sticky Call / Book bar */
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:58;display:grid;grid-template-columns:1fr 2fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid #0b1b2e1a;transition:transform .45s var(--ease)}
+  .mbar a{display:grid;place-items:center;border-radius:12px;font:600 .98rem/1 var(--f-text);padding:1.05em 1em;text-align:center}
+  .mbar-call{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px #0b1b2e30}
+  .mbar-book{background:var(--accent);color:#fff}
+  .mbar.hide{transform:translateY(120%)}
+  .totop{bottom:calc(84px + env(safe-area-inset-bottom));width:46px;height:46px}
+}
+.mbar{display:none}
+@media (max-width:760px){.mbar{display:grid}}
+
+/* Phones and tablets: service photos become a deck of stacking cards */
+@media (max-width:1024px){
+  .svc-list .svc{position:sticky;top:calc(var(--hdr) + 14px);background:var(--bg);border:1px solid var(--rule);border-radius:22px;padding:12px 12px 22px;margin:0 0 26px;box-shadow:0 18px 46px #0b1b2e1c;transform-origin:50% 0;will-change:transform}
+  .svc-list .svc .svc-media{aspect-ratio:16 / 10;margin:0 0 4px;border-radius:14px}
+  .svc-list .svc .qp{top:auto!important;bottom:16px!important;right:14px!important;left:auto!important;width:86px!important;margin:0!important}
+
+  /* Quote posters: small stickers on the edge between sections, never over text */
+  .qp:not(.qp-flow):not(.qp-grid):not(.svc .qp){position:absolute!important;inset:auto!important;top:-54px!important;margin:0!important;width:min(calc(var(--w) * .5),132px)!important;z-index:6}
+  .qp-r:not(.qp-flow):not(.qp-grid):not(.svc .qp){right:14px!important}
+  .qp-l:not(.qp-flow):not(.qp-grid):not(.svc .qp){left:14px!important}
+  .qp-flow{width:min(var(--w),46vw)}
+  .qp-row .qp{width:min(var(--w),42vw)}
+}
+
+/* Phones: section stickers live at the bottom edge, in reserved space, so they never cover text */
+@media (max-width:1024px){
+  section:has(> .qp:not(.qp-flow)){padding-bottom:calc(var(--sp) + 130px)}
+  .qp:not(.qp-flow):not(.qp-grid):not(.svc .qp){top:auto!important;bottom:18px!important}
+}
+@media (max-width:1024px){.svc-list .svc:has(.qp){padding-bottom:128px}}
+
+/* Care for every age: desktop feel on phones (big drifting names, note on the right edge) */
+@media (max-width:760px){
+  .sector{grid-template-columns:minmax(0,1fr) minmax(0,.7fr);align-items:end;padding:clamp(10px,3vw,18px) 0;row-gap:0}
+  .sector-name{grid-column:1 / -1;grid-row:1;font-size:clamp(3.6rem,19vw,6rem);line-height:.92;letter-spacing:-.055em;padding-bottom:.04em}
+  .sector-note{grid-column:2;grid-row:2;justify-self:end;text-align:right;max-width:18ch;font-size:.82rem;padding:0 var(--cell) .5rem;margin-top:-.2rem}
+  .sectors{overflow-x:clip}
+}
+
+/* Phones: the hero must fit inside its pinned screen so nothing spills onto the next section */
+@media (max-width:760px){
+  .hero-grid > .hero-window{min-height:clamp(230px,38svh,400px)}
+  .hero-grid{row-gap:14px}
+  .hero-aim{display:none}
+  .hero-intro{gap:14px}
+  .hero-intro .lead{font-size:1rem;line-height:1.38}
+  .hero .roll{margin:0}
+  .hero-pin{padding-bottom:14px}
+  .hero-statement{display:none}
+}

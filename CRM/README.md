@@ -1,49 +1,31 @@
 # Dentizz CRM
 
-Patients, appointments, treatments, payments and website appointment requests for Dentizz
-Speciality Dental Care. Next.js + Supabase.
+Staff-facing app for Dentizz Speciality Dental Care: patients (ID `DZ-YYYY-NNNNNN`), appointments and queue,
+consultations and records, prescriptions, billing and refunds, inventory, finance, follow-ups, letterhead PDFs,
+and the public booking API used by the website. Next.js (App Router) + Prisma 7 + Postgres (Supabase), shadcn/ui.
+
+Based on the Lumi Hospitals CRM, rebranded and re-seeded for Dentizz.
 
 ## Run it
-
 ```bash
-cd CRM
 npm install
-npm run dev        # http://localhost:3001
+cp .env.example .env      # fill DATABASE_URL (Supabase session-pooler URL, port 5432)
+npx prisma db push        # create tables
+npm run db:seed           # clinic data + staff accounts (passwords printed ONCE)
+npm run dev               # http://localhost:3001
 ```
 
-`.env.local` needs only the project URL and the **publishable** key (see `.env.example`).
-Never add the secret key or the database password to this app.
+Clinic data lives in `prisma/dentizz-data.json`; edit it and re-run `npm run db:seed`
+(existing staff passwords are kept).
 
-## How access works
+## Public booking API (used by the website)
+`GET /api/public/services` · `GET /api/public/doctors` · `GET /api/public/availability?doctorId&date` ·
+`POST /api/public/appointments`. Set `PUBLIC_SITE_ORIGIN` (comma-separated site origins) for CORS.
 
-- Staff sign in with a Supabase Auth account. Only users listed in `public.staff` can use the CRM,
-  so a stranger who signs up in Supabase still sees nothing.
-- Every table has Row Level Security that requires `public.is_staff()`.
-- The public website can only **insert** a new row into `appointment_requests`; it cannot read
-  or change anything.
+## Roles
+ADMIN, DOCTOR, RECEPTIONIST, BILLING. The dentist account is `dr-abdul-azeez@dentizz.in`.
 
-## Database
-
-`supabase/schema.sql` creates everything and is safe to re-run. Tables: `staff`, `patients`,
-`appointments`, `treatments` (charges), `payments`, `appointment_requests`, and the
-`patient_balances` view (billed, paid, balance per patient).
-
-## Adding a staff member
-
-1. Supabase dashboard → Authentication → Users → add the user.
-2. Run in the SQL editor:
-
-```sql
-insert into public.staff (user_id, full_name, role)
-select id, 'Full Name', 'staff' from auth.users where email = 'person@example.com';
-```
-
-## Pages
-
-- Dashboard: today's appointments, new website requests, dues.
-- Appointments: by day, book, mark done / no show / cancel.
-- Patients: search, add, edit; each patient has appointments, treatments, payments and balance.
-- Website requests: requests from the Dentizz site; "Add patient and book" turns one into a patient.
-- Billing: totals and outstanding balances.
-
-Times are shown in India Standard Time.
+## Database safety
+Prisma connects as the database owner. Row Level Security is switched on for every table with no
+policies (see `prisma/secure-supabase.sql`) so the public Supabase API keys can never read patient data.
+Run that file again after any `prisma db push` that adds tables.
