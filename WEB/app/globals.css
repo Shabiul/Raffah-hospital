@@ -831,3 +831,5 @@ h1,h2,h3,.giant,.display,.hero-statement,.statement-text,.sector-name,.fact-num,
 @media (max-width:760px){.hero .giant{--k:.66!important}.ftr-word{--k:.7!important}}
 .hdr[data-tone="dark"] .hdr-brand img,.hdr[data-tone="accent"] .hdr-brand img{filter:none;content:url(/logo-head-white.png)}
 .hdr-brand img,.loader-mark img{background:none!important}
+
+.reveal-photo{aspect-ratio:4 / 3;max-width:min(760px,100%);margin-inline:auto}

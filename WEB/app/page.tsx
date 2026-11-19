@@ -89,26 +89,12 @@ const services = [
 ];
 
 const why = [
-  {
-    title: "A registered dentist",
-    tag: "Registered dentist",
-    text: "Dr. Abdul Azeez (Reg. No. 14934A) looks after your treatment.",
-  },
-  {
-    title: "Complete dental care",
-    tag: "Complete care",
-    text: "From general dentistry to dentures, complete care under one roof.",
-  },
-  {
-    title: "Open six days a week",
-    tag: "Six days a week",
-    text: "Monday to Saturday, with morning and evening sessions. Closed on Sundays.",
-  },
-  {
-    title: "Easy to find",
-    tag: "Easy to find",
-    text: "#10, Serpentine Street, opposite Blessington Apartment, Richmond Town.",
-  },
+  { title: "Explain before we treat", text: "You see your X-rays and photos on screen and agree to every step before it begins." },
+  { title: "No unnecessary work", text: "If a tooth can be saved or watched, we say so, even when it means a smaller bill." },
+  { title: "Fixed, written prices", text: "Every plan comes with a written quote, and the final bill matches it." },
+  { title: "Sterile every time", text: "Instruments are autoclaved and sealed for each patient, and you watch us open them." },
+  { title: "Comfort comes first", text: "Numbing gel, noise-cancelling headphones and breaks whenever you raise a hand." },
+  { title: "Care that follows up", text: "We call after every major treatment and remind you when your next visit is due." },
 ];
 
 const steps = [
@@ -377,7 +363,7 @@ export default function Home() {
           </p>
           <figure className="reveal-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={full(4)} alt={photos[4].alt} width={1600} height={1204} loading="lazy" />
+            <img src="/gallery/signboard.jpg" alt="The Dentizz signboard on Serpentine Street" width={860} height={645} loading="lazy" />
           </figure>
         </section>
 
@@ -385,12 +371,12 @@ export default function Home() {
           <div className="pr-field ruled">
             <div className="pr-head">
               <h2>How we care</h2>
-              <p>Four reasons patients in Richmond Town choose us for their teeth.</p>
+              <p>Six promises every Dentizz doctor makes to every patient, every visit.</p>
             </div>
             <div className="pr-mark" aria-hidden="true" />
             <ol className="pr-list">
               {why.map((w) => (
-                <li className="principle" data-tag={w.tag} key={w.title}>
+                <li className="principle" key={w.title}>
                   <h3>{w.title}</h3>
                   <p>{w.text}</p>
                 </li>
