@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Host_Grotesk, Schibsted_Grotesk } from "next/font/google";
+import { EB_Garamond, Marcellus, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const host = Host_Grotesk({ subsets: ["latin"], variable: "--font-host" });
+const marcellus = Marcellus({ subsets: ["latin"], weight: "400", variable: "--font-marcellus" });
+const garamond = EB_Garamond({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-garamond" });
 const schibsted = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-schibsted" });
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${host.variable} ${schibsted.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${marcellus.variable} ${garamond.variable} ${schibsted.variable}`}>
       <head>
         {/* Show the intro animation once per visit, and never for reduced-motion visitors. */}
         <script

@@ -1,4 +1,4 @@
-:root{--bg:#ffffff;--ink:#0b1b2e;--accent:#2563eb;--muted:#87939c;--paper:#eeeff2;--tint:#d8e5ff;--spark:#c6f14d;--f-display:var(--font-host),system-ui,sans-serif;--f-text:var(--font-schibsted),system-ui,sans-serif;--pad:clamp(16px, 2.5vw, 32px);--cell:clamp(12px, 1.3vw, 18px);--hdr:72px;--r:2px;--sp:clamp(96px, 11vw, 176px);--k:.5;--ease:cubic-bezier(.7,0,.2,1);}
+:root{--bg:#ffffff;--ink:#0b1b2e;--accent:#2563eb;--muted:#87939c;--paper:#eeeff2;--tint:#d8e5ff;--spark:#c6f14d;--f-display:var(--font-marcellus),Georgia,serif;--f-text:var(--font-schibsted),system-ui,sans-serif;--pad:clamp(16px, 2.5vw, 32px);--cell:clamp(12px, 1.3vw, 18px);--hdr:72px;--r:2px;--sp:clamp(96px, 11vw, 176px);--k:.5;--ease:cubic-bezier(.7,0,.2,1);}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--f-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -812,3 +812,25 @@ html.intro .loader{display:grid;animation:loaderOut .01s linear 5s forwards}
   .hero-pin{padding-bottom:14px}
   .hero-statement{display:none}
 }
+
+/* ---- Typeface follows the clinic logo: flared caps (Marcellus) + calligraphic tagline (Garamond) ---- */
+h1,h2,h3,.giant,.display,.hero-statement,.statement-text,.sector-name,.fact-num,.step h3,.svc h3,.principle h3,.person-name,.fq summary,.plan-name,.ct-title,.fe-head h2,.finder-card h3,.teeth-info h3,.brush-zone,.band-item,.loader-name,.menu nav a,.ftr-lead p,.vc-title,.tour-card p{letter-spacing:-.005em!important;font-weight:400!important}
+.hero .giant,.ftr-name,.loader-name{text-transform:uppercase;letter-spacing:.02em!important}
+.hdr-brand img{display:block;height:32px;width:auto}
+@media (max-width:900px){.hdr-brand img{height:26px}}
+.tagline{font-family:var(--font-garamond),Georgia,serif;font-weight:600;letter-spacing:.07em;word-spacing:.28em;white-space:nowrap}
+.tagline em{font-style:normal;color:#b3202a}
+.tagline sup{font-size:.5em;margin-left:.15em;vertical-align:.7em}
+[data-tone="dark"] .tagline{color:#fff}
+[data-tone="dark"] .tagline em{color:#ff5a66}
+.ftr-lead p{font-size:clamp(1.2rem,1.8vw,1.6rem);max-width:none}
+.hero-aim .tagline{font-size:1.02rem}
+.loader-mark{background:#fff;border-radius:50%;padding:14px}
+.loader-ring{stroke:transparent}
+.loader-mark img{width:70%}
+.pr-node{font-weight:700;font-size:.9rem;color:#0b1b2e}
+.hdr[data-tone="dark"] .hdr-brand img,.hdr[data-tone="accent"] .hdr-brand img{filter:brightness(0) invert(1)}
+.menu .hdr-brand img{filter:none}
+
+@media (max-width:760px){.hero .giant{--k:.66!important}.ftr-word{--k:.7!important}}
+.hdr[data-tone="dark"] .hdr-brand img,.hdr[data-tone="accent"] .hdr-brand img{filter:none;content:url(/logo-head-white.png)}

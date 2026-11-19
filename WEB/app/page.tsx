@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import ContactForm from "@/components/ContactForm";
 import Motion from "@/components/Motion";
-import Logo from "@/components/Logo";
+import Tagline from "@/components/Tagline";
 import Tick from "@/components/Tick";
 import Poster from "@/components/Poster";
 import Lightbox from "@/components/Lightbox";
@@ -21,12 +21,19 @@ const TOUR: [number, string][] = [
   [25, "Reception"],
   [6, "Consultation desk"],
   [12, "Treatment room"],
-  [19, "Chair and light"],
+  [18, "Waiting area"],
   [21, "Wash basin and smile poster"],
   [22, "Instrument counter"],
 ];
 
 const services = [
+  {
+    title: "General dentistry",
+    text: "Check-ups, cleaning and fillings that keep problems small and your visits short.",
+    points: ["Check-ups", "Scaling & polishing", "Fillings"],
+    img: img("svc-checkup"),
+    alt: "A routine dental check-up",
+  },
   {
     title: "Child dentistry",
     text: "Gentle check-ups and everyday care for children, in a clinic with a kids' corner of their own.",
@@ -43,12 +50,34 @@ const services = [
     alt: "Close-up of braces on teeth",
   },
   {
-    title: "Crowns, bridges & dentures",
-    text: "Replace or restore missing and damaged teeth so you can eat and smile with confidence.",
-    points: ["Crowns", "Bridges", "Dentures"],
+    title: "Root canal treatment",
+    text: "Treatment for painful or infected teeth, to save the tooth and take away the pain.",
+    points: ["Root canal treatment", "Tooth pain relief"],
+    img: img("svc-root"),
+    alt: "An X-ray of a tooth after root canal treatment",
+    poster: { n: 25, width: 180, rotate: 4 },
+  },
+  {
+    title: "Wisdom tooth removal",
+    text: "Oral and maxillofacial surgery: careful removal of wisdom teeth that hurt, swell or have no room.",
+    points: ["Wisdom tooth removal", "Oral & maxillofacial surgery"],
+    img: img("svc-surgery"),
+    alt: "A dental chair in the Dentizz treatment room",
+  },
+  {
+    title: "Crowns & bridges",
+    text: "Restore damaged teeth and close the gap left by missing ones, so you can eat and smile with confidence.",
+    points: ["Crowns", "Bridges"],
     img: img("svc-implants"),
     alt: "A dentist showing a dental implant model",
     poster: { n: 19, width: 200, rotate: -3 },
+  },
+  {
+    title: "Dentures",
+    text: "Replace several or all of your teeth with comfortable, natural-looking dentures.",
+    points: ["Complete dentures", "Partial dentures"],
+    img: img("svc-dentures"),
+    alt: "A complete set of dentures",
   },
   {
     title: "Aesthetic dentistry",
@@ -56,14 +85,6 @@ const services = [
     points: ["Smile restoration", "Aesthetic treatments"],
     img: img("svc-aesthetic"),
     alt: "A dentist explaining a smile design",
-  },
-  {
-    title: "Root canal & wisdom tooth removal",
-    text: "Treatment for painful or infected teeth, and careful removal of troublesome wisdom teeth.",
-    points: ["Root canal treatment", "Wisdom tooth removal"],
-    img: img("svc-checkup"),
-    alt: "A routine dental check-up",
-    poster: { n: 25, width: 180, rotate: 4 },
   },
 ];
 
@@ -76,7 +97,7 @@ const why = [
   {
     title: "Complete dental care",
     tag: "Complete care",
-    text: "From child dentistry to dentures, eight areas of care under one roof.",
+    text: "From general dentistry to dentures, complete care under one roof.",
   },
   {
     title: "Open six days a week",
@@ -94,7 +115,7 @@ const steps = [
   {
     when: "Step one",
     title: "Call or send a request",
-    text: "Use the form below, or call 98451 77371 or 080 - 4092 3102.",
+    text: "Use the form below, or call 98451 77371.",
   },
   {
     when: "Step two",
@@ -104,12 +125,12 @@ const steps = [
   {
     when: "Your visit",
     title: "Exam and a clear plan",
-    text: "Dr. Azeez checks your teeth and gums and explains your options in plain words.",
+    text: "Dr. Abdul Azeez and his team examine your teeth and gums and explain your options and your treatment plan.",
   },
   {
     when: "After treatment",
     title: "Follow-up care",
-    text: "We tell you how to look after your teeth and when to come back.",
+    text: "Dr. Abdul Azeez and his team plan your follow-up visits and tell you how to look after your teeth.",
   },
 ];
 
@@ -127,7 +148,7 @@ const faqs = [
   },
   {
     q: "How do I book an appointment?",
-    a: "Send a request with the form on this page, or call 98451 77371 or 080 - 4092 3102.",
+    a: "Send a request with the form on this page, or call 98451 77371.",
   },
   {
     q: "What treatments do you offer?",
@@ -166,7 +187,7 @@ export default function Home() {
             <Bubbles />
             <div className="hero-grid">
               <div className="hero-word">
-                <h1 className="giant" style={{ ["--len" as string]: 7 }}>
+                <h1 className="giant" style={{ ["--len" as string]: 7, ["--k" as string]: 0.47 }}>
                   Dentizz
                 </h1>
               </div>
@@ -210,12 +231,12 @@ export default function Home() {
               <Poster n={17} grid at={{ rotate: -4, width: 200 }} />
               <div className="hero-aim">
                 <p>Our promise</p>
-                <p>Add smile to your face.</p>
+                <Tagline />
                 <OpenNow className="hero-open" />
               </div>
             </div>
             <div className="hero-stage" aria-hidden="true" />
-            <p className="hero-statement">Add smile to your face.</p>
+            <p className="hero-statement">Expert dental care.</p>
           </div>
         </section>
 
@@ -245,11 +266,11 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <ul className="facts grid">
+          <ul className="facts grid" style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
             <li className="fact">
               <span className="fact-rule" data-rule />
-              <strong className="fact-num">8</strong>
-              <span className="fact-label">areas of dental care under one roof</span>
+              <strong className="fact-num">2</strong>
+              <span className="fact-label">decades of smiling for Bangalore</span>
             </li>
             <li className="fact">
               <span className="fact-rule" data-rule />
@@ -260,11 +281,6 @@ export default function Home() {
               <span className="fact-rule" data-rule />
               <strong className="fact-num">2</strong>
               <span className="fact-label">sessions a day, morning and evening</span>
-            </li>
-            <li className="fact">
-              <span className="fact-rule" data-rule />
-              <strong className="fact-num">2</strong>
-              <span className="fact-label">phone lines to book or ask a question</span>
             </li>
           </ul>
           <Poster n={18} at={{ right: "4%", top: "8%", rotate: 3, width: 225 }} />
@@ -368,7 +384,7 @@ export default function Home() {
         <section className="principles" id="why" data-kind="values" data-tone="accent">
           <div className="pr-field ruled">
             <div className="pr-head">
-              <h2>Why Dentizz</h2>
+              <h2>How we care</h2>
               <p>Four reasons patients in Richmond Town choose us for their teeth.</p>
             </div>
             <div className="pr-mark" aria-hidden="true" />
@@ -582,10 +598,6 @@ export default function Home() {
                     <a className="link" href="tel:+919845177371">
                       98451 77371
                     </a>
-                    <br />
-                    <a className="link" href="tel:08040923102">
-                      080 - 4092 3102
-                    </a>
                   </dd>
                 </div>
                 <div>
@@ -634,7 +646,9 @@ export default function Home() {
       <footer className="ftr" id="site-footer" data-tone="dark">
         <div className="grid ftr-grid">
           <div className="ftr-col ftr-lead">
-            <p>Add smile to your face.</p>
+            <p>
+              <Tagline />
+            </p>
             <a className="btn" href="#contact">
               <span>Book a consultation</span>
               <Tick />
@@ -643,7 +657,7 @@ export default function Home() {
           <nav className="ftr-col" aria-label="Clinic">
             <p className="ftr-h">Clinic</p>
             <a className="link" href="#services">Treatments</a>
-            <a className="link" href="#why">Why Dentizz</a>
+            <a className="link" href="#why">How we care</a>
             <a className="link" href="#team">Dentist</a>
             <a className="link" href="#faq">FAQ</a>
           </nav>
@@ -655,14 +669,12 @@ export default function Home() {
           <div className="ftr-col">
             <p className="ftr-h">Call</p>
             <a className="link" href="tel:+919845177371">98451 77371</a>
-            <a className="link" href="tel:08040923102">080 - 4092 3102</a>
             <a className="link ftr-top" href="#hero">Back to top</a>
           </div>
         </div>
         <SmileArc />
-        <div className="ftr-word" style={{ ["--len" as string]: 7 }} aria-hidden="true">
-          <Logo />
-          <span className="ftr-name">Dentizz</span>
+        <div className="ftr-word" style={{ ["--len" as string]: 7, ["--k" as string]: 0.56 }} aria-hidden="true">
+          <span className="ftr-name">DENTIZZ</span>
         </div>
         <div className="ftr-base">
           <span>&copy; 2026 Dentizz Speciality Dental Care</span>

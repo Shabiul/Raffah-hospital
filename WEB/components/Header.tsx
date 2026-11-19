@@ -1,9 +1,8 @@
-import Logo from "./Logo";
 import Tick from "./Tick";
 
 const links = [
   { href: "#services", label: "Treatments" },
-  { href: "#why", label: "Why Dentizz" },
+  { href: "#why", label: "How we care" },
   { href: "#visit", label: "First visit" },
   { href: "#team", label: "Dentist" },
   { href: "#faq", label: "FAQ" },
@@ -17,8 +16,8 @@ export default function Header() {
         <div className="hdr-in">
           <div className="hdr-lead">
             <a className="hdr-brand" href="#hero" aria-label="Dentizz, back to the top">
-              <Logo />
-              <span>Dentizz</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-head.png" alt="Dentizz" width={1266} height={163} />
             </a>
             <p className="hdr-tag">Speciality dental care in Richmond Town</p>
           </div>
@@ -67,9 +66,6 @@ export default function Header() {
         <div className="menu-foot">
           <a className="link" href="tel:+919845177371">
             98451 77371
-          </a>
-          <a className="link" href="tel:08040923102">
-            080 - 4092 3102
           </a>
         </div>
       </div>

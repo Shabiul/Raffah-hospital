@@ -50,4 +50,9 @@ export const small = (n: number) => `/gallery/s${pad(n)}.jpg`;
 export const HERO = 27;
 export const ABOUT = 26;
 export const COLLAGE = [8, 2, 0, 5, 17];
-export const GRID = photos.filter((p) => ![HERO, ABOUT, ...COLLAGE].includes(p.n));
+/** Used by the photo tour, the circle reveal and the service rows. */
+export const TOUR_PHOTOS = [11, 1, 25, 6, 12, 18, 21, 22];
+export const REVEAL = 4;
+export const SERVICE_PHOTOS = [15];
+const USED = [HERO, ABOUT, ...COLLAGE, ...TOUR_PHOTOS, REVEAL, ...SERVICE_PHOTOS];
+export const GRID = photos.filter((p) => !USED.includes(p.n));

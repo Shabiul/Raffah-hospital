@@ -461,7 +461,6 @@ export default function initExtraMotion() {
         if (!next) return;
         gsap.to(card, {
           scale: 0.93,
-          opacity: 0.6,
           ease: "none",
           scrollTrigger: { trigger: next, start: "top 88%", end: "top 22%", scrub: true },
         });

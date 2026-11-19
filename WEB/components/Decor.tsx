@@ -13,9 +13,9 @@ export function Loader() {
           <circle className="loader-ring" cx="60" cy="60" r="56" pathLength={1} />
         </svg>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/tooth.png" alt="" width={630} height={887} />
+        <img src="/logo-mark.png" alt="" width={162} height={161} />
       </div>
-      <p className="loader-name">Dentizz</p>
+      <p className="loader-name">DENTIZZ</p>
     </div>
   );
 }
