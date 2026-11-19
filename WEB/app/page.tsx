@@ -29,59 +29,56 @@ const TOUR: [number, string][] = [
 const services = [
   {
     title: "General dentistry",
-    text: "Check-ups, cleaning and fillings that keep problems small and your visits short.",
+    text: "Thorough examinations, meticulous cleaning and conservative restorations that keep minor concerns minor.",
     points: ["Check-ups", "Scaling & polishing", "Fillings"],
     img: img("svc-checkup"),
     alt: "A dentist examining a patient in the dental chair",
   },
   {
     title: "Child dentistry",
-    text: "Gentle check-ups and everyday care for children, in a clinic with a kids' corner of their own.",
+    text: "Reassuring first appointments and attentive everyday care, in a practice with a children's corner of its own.",
     points: ["First visits", "Check-ups", "Child-friendly care"],
     img: img("svc-child"),
     alt: "A dentist checking a young boy's teeth",
-    poster: { n: 22, width: 190, rotate: 3 },
   },
   {
     title: "Orthodontics & aligners",
-    text: "Straighten your teeth with braces or clear aligners, planned around your smile.",
+    text: "Precisely planned braces and clear aligners that align your teeth and refine your smile.",
     points: ["Orthodontics", "Braces", "Aligners"],
     img: img("svc-braces"),
     alt: "Close-up of braces on teeth",
   },
   {
     title: "Root canal treatment",
-    text: "Treatment for painful or infected teeth, to save the tooth and take away the pain.",
+    text: "Skilful, comfortable treatment that preserves the natural tooth and relieves pain at its source.",
     points: ["Root canal treatment", "Tooth pain relief"],
     img: img("svc-root"),
     alt: "A dental treatment chair ready for root canal treatment",
-    poster: { n: 25, width: 180, rotate: 4 },
   },
   {
     title: "Wisdom tooth removal",
-    text: "Oral and maxillofacial surgery: careful removal of wisdom teeth that hurt, swell or have no room.",
+    text: "Oral and maxillofacial surgery: the careful, considered removal of wisdom teeth that cause pain, swelling or crowding.",
     points: ["Wisdom tooth removal", "Oral & maxillofacial surgery"],
     img: img("svc-surgery"),
     alt: "A dentist removing a tooth with the patient reclined",
   },
   {
     title: "Crowns & bridges",
-    text: "Restore damaged teeth and close the gap left by missing ones, so you can eat and smile with confidence.",
+    text: "Durable, finely crafted restorations that rebuild damaged teeth and close gaps with strength and confidence.",
     points: ["Crowns", "Bridges"],
     img: img("svc-implants"),
     alt: "A crown and implant model beside teeth models",
-    poster: { n: 19, width: 200, rotate: -3 },
   },
   {
     title: "Dentures",
-    text: "Replace several or all of your teeth with comfortable, natural-looking dentures.",
+    text: "Comfortable, natural-looking dentures, crafted to restore function and the pleasure of a full smile.",
     points: ["Complete dentures", "Partial dentures"],
     img: img("svc-dentures"),
     alt: "A model of a complete set of dentures",
   },
   {
     title: "Aesthetic dentistry",
-    text: "Restoring your smile is our speciality, with treatments that look natural and feel right.",
+    text: "Restoring your smile is our speciality: refined, natural-looking results that feel entirely your own.",
     points: ["Smile restoration", "Aesthetic treatments"],
     img: img("svc-aesthetic"),
     alt: "A close-up of a bright, natural smile",
@@ -111,12 +108,12 @@ const steps = [
   {
     when: "Your visit",
     title: "Exam and a clear plan",
-    text: "Dr. Abdul Azeez and his team examine your teeth and gums and explain your options and your treatment plan.",
+    text: "Dr. Abdul Azeez and his team conduct a thorough examination, then set out your options and a clear, considered treatment plan.",
   },
   {
     when: "After treatment",
     title: "Follow-up care",
-    text: "Dr. Abdul Azeez and his team plan your follow-up visits and tell you how to look after your teeth.",
+    text: "Dr. Abdul Azeez and his team schedule your follow-up care and advise on how best to protect your results.",
   },
 ];
 
@@ -188,19 +185,19 @@ export default function Home() {
               </figure>
               <div className="hero-intro">
                 <p className="lead">
-                  Dentizz is a speciality dental clinic in Richmond Town, Bengaluru, caring for
-                  children and adults with braces, aligners, root canals, crowns, dentures and
-                  more.
+                  Dentizz is a speciality dental practice in Richmond Town, Bengaluru, offering
+                  precise, unhurried and compassionate care to patients of every age, from a
+                  child&apos;s first appointment to complete smile rehabilitation.
                 </p>
                 <p className="roll">
                   Dentistry that feels{" "}
                   <span className="roll-words">
                     <span className="roll-track">
+                      <b>meticulous</b>
                       <b>gentle</b>
-                      <b>calm</b>
-                      <b>caring</b>
-                      <b>bright</b>
-                      <b>gentle</b>
+                      <b>assured</b>
+                      <b>enduring</b>
+                      <b>meticulous</b>
                     </span>
                   </span>
                 </p>
@@ -214,7 +211,6 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <Poster n={17} grid at={{ rotate: -4, width: 200 }} />
               <div className="hero-aim">
                 <p>Our promise</p>
                 <Tagline />
@@ -222,14 +218,14 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-stage" aria-hidden="true" />
-            <p className="hero-statement">Expert dental care.</p>
+            <p className="hero-statement">Expert dental care, meticulously delivered.</p>
           </div>
         </section>
 
         <section className="about sheet" id="about" data-kind="about" data-tone="light">
           <div className="grid about-top">
             <h2 className="about-title" data-split>
-              Speciality dental care, close to home in Richmond Town.
+              Considered, expert dental care in the heart of Richmond Town.
             </h2>
             <figure className="about-photo frame" data-parallax="12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -243,9 +239,9 @@ export default function Home() {
             </figure>
             <div className="about-copy" data-reveal>
               <p className="lead">
-                Dr. Abdul Azeez and the Dentizz team look after your teeth and gums, from a
-                child&apos;s first visit to dentures. Come in, sit down, and we will explain every
-                step.
+                Dr. Abdul Azeez and his team pair clinical precision with an unhurried, personal
+                approach. Every treatment is explained with clarity before it begins, and carried
+                out with exacting attention to detail.
               </p>
               <a className="link" href="#team">
                 Meet the dentist
@@ -269,7 +265,6 @@ export default function Home() {
               <span className="fact-label">sessions a day, morning and evening</span>
             </li>
           </ul>
-          <Poster n={18} at={{ right: "4%", top: "8%", rotate: 3, width: 225 }} />
           <Floater kind="sparkle" size={34} speed={60} style={{ right: "6%", top: "46%" }} />
           <Floater kind="drop" size={30} speed={-40} dur={11} style={{ left: "48%", top: "6%" }} />
         </section>
@@ -319,12 +314,6 @@ export default function Home() {
                       <li key={p}>{p}</li>
                     ))}
                   </ul>
-                  {s.poster && (
-                    <Poster
-                      n={s.poster.n as 19 | 22 | 25}
-                      at={{ right: "3%", bottom: "28px", width: s.poster.width, rotate: s.poster.rotate }}
-                    />
-                  )}
                 </li>
               ))}
             </ul>
@@ -359,7 +348,7 @@ export default function Home() {
 
         <section className="statement sheet" id="statement" data-kind="statement" data-tone="light">
           <p className="statement-text" data-words>
-            We listen first, explain clearly and treat gently, so every visit leaves you with a healthier smile and nothing to worry about.
+            We listen first, explain with clarity and treat with precision, so that every visit leaves you with a healthier smile and complete peace of mind.
           </p>
           <figure className="reveal-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -397,7 +386,6 @@ export default function Home() {
                 <span>Book a visit</span>
                 <Tick />
               </a>
-              <Poster n={20} flow at={{ rotate: -3, width: 220 }} />
             </div>
             <div className="pc-track">
               <span className="pc-fill" aria-hidden="true" />
@@ -410,7 +398,6 @@ export default function Home() {
                   </li>
                 ))}
               </ol>
-              <Poster n={24} flow at={{ rotate: 3, width: 220 }} />
             </div>
           </div>
           <Floater kind="brush" size={44} speed={50} dur={12} style={{ left: "44%", top: "8%" }} />
@@ -420,12 +407,13 @@ export default function Home() {
         <section className="team sheet" id="team" data-kind="team" data-tone="dark">
           <div className="grid tm-head">
             <h2 data-split>Meet Dr. Abdul Azeez</h2>
-            <p className="soft">Dentizz is led by Dr. Abdul Azeez, registered dentist, Reg. No. 14934A.</p>
+            <p className="soft">
+              Dr. Abdul Azeez leads a dedicated team offering exacting, compassionate dentistry across
+              every discipline of oral care.
+            </p>
           </div>
           <div className="qp-row">
             <ToothDraw />
-            <Poster n={28} flow at={{ rotate: -3, width: 297 }} />
-            <Poster n={30} flow at={{ rotate: 3, width: 283 }} />
           </div>
           <div className="tm-foot">
             <p className="soft">Mon to Sat, 10:30 am to 1:00 pm and 5:00 pm to 8:30 pm.</p>
@@ -434,64 +422,6 @@ export default function Home() {
               <Tick />
             </a>
           </div>
-        </section>
-
-        <section className="gallery sheet" id="gallery" data-kind="gallery" data-tone="light">
-          <div className="grid gl-head">
-            <h2 data-split>A calm place for care</h2>
-            <p>
-              A bright, clean clinic on Serpentine Street, with a comfortable waiting area and
-              modern treatment chairs.
-            </p>
-          </div>
-          <div className="collage">
-            {(
-              [
-                ["gl-a", "-8", COLLAGE[0]],
-                ["gl-b", "14", COLLAGE[1]],
-                ["gl-c", "26", COLLAGE[2]],
-                ["gl-d", "4", COLLAGE[3]],
-                ["gl-e", "20", COLLAGE[4]],
-              ] as const
-            ).map(([cls, depth, n]) => (
-              <figure className={`gl ${cls} frame`} data-depth={depth} key={cls}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={full(n)}
-                  data-full={full(n)}
-                  data-lightbox=""
-                  alt={photos[n].alt}
-                  width={1600}
-                  height={1204}
-                  loading="lazy"
-                />
-              </figure>
-            ))}
-          </div>
-
-          <div className="mosaic-title">
-            <h3 data-split>More from the clinic</h3>
-            <p className="muted small">Tap or click any photo to view it large.</p>
-          </div>
-          <div className="mosaic">
-            {GRID.map((p) => (
-              <figure className="mo frame" key={p.n}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={medium(p.n)}
-                  srcSet={`${small(p.n)} 480w, ${medium(p.n)} 900w`}
-                  sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 30vw"
-                  data-full={full(p.n)}
-                  data-lightbox=""
-                  alt={p.alt}
-                  width={p.w}
-                  height={p.h}
-                  loading="lazy"
-                />
-              </figure>
-            ))}
-          </div>
-          <Poster n={21} at={{ left: "52%", top: "4%", rotate: 3, width: 220 }} />
         </section>
 
         <section className="sectors sheet" id="sectors" data-kind="industries" data-tone="tint">
@@ -507,12 +437,34 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <div className="qp-row">
-            <Poster n={27} flow at={{ rotate: -3, width: 290 }} />
-            <Poster n={26} flow at={{ rotate: 2, width: 400 }} />
-          </div>
           <Floater kind="ring" size={42} speed={50} dur={13} style={{ right: "8%", top: "12%" }} />
           <Floater kind="sparkle" size={30} speed={-40} style={{ left: "50%", bottom: "8%" }} />
+        </section>
+
+        <section className="voices sheet" id="voices" data-kind="reviews" data-tone="paper">
+          <div className="grid vc-head">
+            <h2 data-split>Principles of a healthy smile</h2>
+            <p>
+              A collection of reminders, kept close at the practice, on the small daily habits that
+              safeguard your teeth for a lifetime.
+            </p>
+          </div>
+          <div className="qwall">
+            <Poster n={17} flow at={{ rotate: -3, width: 230 }} />
+            <Poster n={18} flow at={{ rotate: 2, width: 250 }} />
+            <Poster n={19} flow at={{ rotate: -2, width: 230 }} />
+            <Poster n={20} flow at={{ rotate: 3, width: 225 }} />
+            <Poster n={21} flow at={{ rotate: -3, width: 260 }} />
+            <Poster n={22} flow at={{ rotate: 2, width: 230 }} />
+            <Poster n={23} flow at={{ rotate: -2, width: 240 }} />
+            <Poster n={24} flow at={{ rotate: 3, width: 235 }} />
+            <Poster n={25} flow at={{ rotate: -3, width: 200 }} />
+            <Poster n={26} flow at={{ rotate: 1, width: 360 }} />
+            <Poster n={27} flow at={{ rotate: -2, width: 280 }} />
+            <Poster n={28} flow at={{ rotate: 3, width: 250 }} />
+            <Poster n={29} flow at={{ rotate: -3, width: 215 }} />
+            <Poster n={30} flow at={{ rotate: 2, width: 260 }} />
+          </div>
         </section>
 
         <section className="finder-sec sheet" id="finder" data-kind="finder" data-tone="light">
@@ -544,7 +496,6 @@ export default function Home() {
             <div className="fq-head">
               <h2 data-split>Questions patients ask</h2>
               <p className="muted">Can&apos;t find your answer? Call 98451 77371.</p>
-              <Poster n={23} flow at={{ rotate: -3, width: 200 }} />
             </div>
             <div className="fq-list">
               {faqs.map((f) => (
@@ -625,7 +576,6 @@ export default function Home() {
               <HoursWeek />
             </div>
           </div>
-          <Poster n={29} at={{ right: "3%", top: "2%", rotate: 3, width: 165 }} />
         </section>
       </main>
 
