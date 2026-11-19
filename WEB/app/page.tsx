@@ -32,14 +32,14 @@ const services = [
     text: "Check-ups, cleaning and fillings that keep problems small and your visits short.",
     points: ["Check-ups", "Scaling & polishing", "Fillings"],
     img: img("svc-checkup"),
-    alt: "The Dentizz dental chair and unit",
+    alt: "A dentist examining a patient in the dental chair",
   },
   {
     title: "Child dentistry",
     text: "Gentle check-ups and everyday care for children, in a clinic with a kids' corner of their own.",
     points: ["First visits", "Check-ups", "Child-friendly care"],
     img: img("svc-child"),
-    alt: "The kids' corner with the height and teeth chart",
+    alt: "A dentist checking a young boy's teeth",
     poster: { n: 22, width: 190, rotate: 3 },
   },
   {
@@ -54,7 +54,7 @@ const services = [
     text: "Treatment for painful or infected teeth, to save the tooth and take away the pain.",
     points: ["Root canal treatment", "Tooth pain relief"],
     img: img("svc-root"),
-    alt: "An X-ray of a tooth after root canal treatment",
+    alt: "A dental treatment chair ready for root canal treatment",
     poster: { n: 25, width: 180, rotate: 4 },
   },
   {
@@ -62,14 +62,14 @@ const services = [
     text: "Oral and maxillofacial surgery: careful removal of wisdom teeth that hurt, swell or have no room.",
     points: ["Wisdom tooth removal", "Oral & maxillofacial surgery"],
     img: img("svc-surgery"),
-    alt: "A Dentizz treatment chair with overhead light",
+    alt: "A dentist removing a tooth with the patient reclined",
   },
   {
     title: "Crowns & bridges",
     text: "Restore damaged teeth and close the gap left by missing ones, so you can eat and smile with confidence.",
     points: ["Crowns", "Bridges"],
     img: img("svc-implants"),
-    alt: "A dentist showing a dental implant model",
+    alt: "A crown and implant model beside teeth models",
     poster: { n: 19, width: 200, rotate: -3 },
   },
   {
@@ -77,14 +77,14 @@ const services = [
     text: "Replace several or all of your teeth with comfortable, natural-looking dentures.",
     points: ["Complete dentures", "Partial dentures"],
     img: img("svc-dentures"),
-    alt: "A complete set of dentures",
+    alt: "A model of a complete set of dentures",
   },
   {
     title: "Aesthetic dentistry",
     text: "Restoring your smile is our speciality, with treatments that look natural and feel right.",
     points: ["Smile restoration", "Aesthetic treatments"],
     img: img("svc-aesthetic"),
-    alt: "The Restoring your smile poster at Dentizz",
+    alt: "A close-up of a bright, natural smile",
   },
 ];
 

@@ -53,6 +53,6 @@ export const COLLAGE = [8, 4, 0, 5, 3];
 /** Used by the photo tour, the circle reveal and the service rows. */
 export const TOUR_PHOTOS = [11, 1, 25, 6, 12, 18, 20, 22];
 export const REVEAL = 2;
-export const SERVICE_PHOTOS = [17, 7, 19, 21];
+export const SERVICE_PHOTOS: number[] = [];
 const USED = [HERO, ABOUT, ...COLLAGE, ...TOUR_PHOTOS, REVEAL, ...SERVICE_PHOTOS];
 export const GRID = photos.filter((p) => !USED.includes(p.n));
