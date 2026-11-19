@@ -22,7 +22,7 @@ const TOUR: [number, string][] = [
   [6, "Consultation desk"],
   [12, "Treatment room"],
   [18, "Waiting area"],
-  [21, "Wash basin and smile poster"],
+  [20, "Sterilisation corner"],
   [22, "Instrument counter"],
 ];
 
@@ -32,14 +32,14 @@ const services = [
     text: "Check-ups, cleaning and fillings that keep problems small and your visits short.",
     points: ["Check-ups", "Scaling & polishing", "Fillings"],
     img: img("svc-checkup"),
-    alt: "A routine dental check-up",
+    alt: "The Dentizz dental chair and unit",
   },
   {
     title: "Child dentistry",
     text: "Gentle check-ups and everyday care for children, in a clinic with a kids' corner of their own.",
     points: ["First visits", "Check-ups", "Child-friendly care"],
     img: img("svc-child"),
-    alt: "A child having a gentle first dental visit",
+    alt: "The kids' corner with the height and teeth chart",
     poster: { n: 22, width: 190, rotate: 3 },
   },
   {
@@ -62,7 +62,7 @@ const services = [
     text: "Oral and maxillofacial surgery: careful removal of wisdom teeth that hurt, swell or have no room.",
     points: ["Wisdom tooth removal", "Oral & maxillofacial surgery"],
     img: img("svc-surgery"),
-    alt: "A dental chair in the Dentizz treatment room",
+    alt: "A Dentizz treatment chair with overhead light",
   },
   {
     title: "Crowns & bridges",
@@ -84,7 +84,7 @@ const services = [
     text: "Restoring your smile is our speciality, with treatments that look natural and feel right.",
     points: ["Smile restoration", "Aesthetic treatments"],
     img: img("svc-aesthetic"),
-    alt: "A dentist explaining a smile design",
+    alt: "The Restoring your smile poster at Dentizz",
   },
 ];
 
