@@ -779,18 +779,7 @@ export default function initMotion() {
         mark = $(".pr-mark", sec),
         items = $$(".principle", sec);
       if (!field || !mark || !items.length) return null;
-      const strokes = items.map((it, idx) => {
-        const stick = mark.appendChild(document.createElement("i"));
-        const node = document.createElement("b");
-        node.className = "pr-node";
-        node.textContent = String(idx + 1).padStart(2, "0");
-        const label = document.createElement("span");
-        label.className = "pr-label";
-        label.textContent =
-          it.dataset.tag || ($("h3", it) ? $("h3", it).textContent : "");
-        stick.append(node, label);
-        return stick;
-      });
+      const strokes = items.map(() => mark.appendChild(document.createElement("i")));
       sec.style.setProperty("--steps", items.length);
       sec.classList.add("is-live");
       return { field, mark, items, strokes };
