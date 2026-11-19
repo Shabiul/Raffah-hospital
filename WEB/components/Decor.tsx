@@ -15,7 +15,7 @@ export function Loader() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark.png" alt="" width={162} height={161} />
       </div>
-      <p className="loader-name">DENTIZZ</p>
+      <p className="loader-name loader-tag">Add <em>Smile</em> to your Face</p>
     </div>
   );
 }

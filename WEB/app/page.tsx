@@ -632,9 +632,8 @@ export default function Home() {
       <footer className="ftr" id="site-footer" data-tone="dark">
         <div className="grid ftr-grid">
           <div className="ftr-col ftr-lead">
-            <p>
-              <Tagline />
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="ftr-logo" src="/logo-full-white.png" alt="Dentizz: Add Smile to your Face" width={1301} height={329} />
             <a className="btn" href="#contact">
               <span>Book a consultation</span>
               <Tick />

@@ -17,9 +17,8 @@ export default function Header() {
           <div className="hdr-lead">
             <a className="hdr-brand" href="#hero" aria-label="Dentizz, back to the top">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo-head.png" alt="Dentizz" width={1266} height={163} />
+              <img src="/logo-full.png" alt="Dentizz: Add Smile to your Face" width={1301} height={329} />
             </a>
-            <p className="hdr-tag">Speciality dental care in Richmond Town</p>
           </div>
           <nav className="hdr-nav" aria-label="Main">
             {links.map((l) => (

@@ -833,3 +833,12 @@ h1,h2,h3,.giant,.display,.hero-statement,.statement-text,.sector-name,.fact-num,
 .hdr-brand img,.loader-mark img{background:none!important}
 
 .reveal-photo{aspect-ratio:4 / 3;max-width:min(760px,100%);margin-inline:auto}
+
+/* The full logo (mark + DENTIZZ + tagline) is one lockup */
+.hdr-brand img{height:56px;width:auto}
+.hdr-lead{gap:0}
+.hdr[data-tone="dark"] .hdr-brand img,.hdr[data-tone="accent"] .hdr-brand img{content:url(/logo-full-white.png)}
+@media (max-width:900px){.hdr-brand img{height:42px}}
+.ftr-logo{width:min(360px,100%);height:auto;background:none!important;margin-bottom:6px}
+.loader-tag{font-family:var(--font-garamond),Georgia,serif;font-size:1.25rem;letter-spacing:.07em;text-transform:none!important;word-spacing:.25em}
+.loader-tag em{font-style:normal;color:#ff6b75}
